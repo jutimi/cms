@@ -1,3 +1,5 @@
+import { Button } from "antd";
+
 export default function Page() {
-  return <h1>Hello, Dashboard Page!</h1>;
+  return <Button type="primary">Button</Button>;
 }
