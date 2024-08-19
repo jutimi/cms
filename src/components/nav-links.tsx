@@ -2,14 +2,22 @@
 
 import { usePathname } from "next/navigation";
 import { Breadcrumb } from "antd";
+import { ItemType } from "antd/es/breadcrumb/Breadcrumb";
+import { useTranslations } from "next-intl";
 
 export function NavLinks() {
+    const t = useTranslations("nav_bar");
     const pathname = usePathname();
 
-    return (
-        <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-        </Breadcrumb>
-    );
+    const items: ItemType[] = pathname
+        .split("/")
+        .slice(1)
+        .map((path) => {
+            return {
+                title: t(path),
+                key: path,
+            };
+        });
+
+    return <Breadcrumb style={{ margin: "16px 0" }} items={items}></Breadcrumb>;
 }
