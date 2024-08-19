@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { NavLinks } from "@/app/ui/nav-links";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Layout } from "antd";
+import { Header, Footer, Content } from "antd/es/layout/layout";
+import Sider from "antd/es/layout/Sider";
+import { NavLinks } from "@/components/nav-links";
+import { NavBar } from "@/components/nav-bar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <NavLinks />
-        <AntdRegistry>{children}</AntdRegistry>
+      <body>
+        <Layout style={{ minHeight: "100vh" }}>
+          <Sider collapsible>
+            <div className="demo-logo-vertical" />
+            <NavBar></NavBar>
+          </Sider>
+          <Layout>
+            <Header style={{ padding: 0 }} />
+            <Content style={{ margin: "0 16px" }}>
+              <NavLinks></NavLinks>
+              <AntdRegistry>{children}</AntdRegistry>
+            </Content>
+            <Footer style={{ textAlign: "center" }}>
+              Ant Design ©{new Date().getFullYear()} Created by Ant UED
+            </Footer>
+          </Layout>
+        </Layout>
       </body>
     </html>
   );
