@@ -1,9 +1,9 @@
 {
-  "nav_bar": {
-    "dashboard": "Dashboard",
-    "workspace_group": "Quản lý workspace",
-    "user_workspaces": "Quản lý nhân sự",
-    "organizations": "Quản lý phòng ban"
-  },
-  "validation": {}
+    "nav_bar": {
+        "dashboard": "Dashboard",
+        "workspace_group": "Quản lý workspace",
+        "user_workspaces": "Quản lý nhân sự",
+        "organizations": "Quản lý phòng ban"
+    },
+    "validation": {}
 }
