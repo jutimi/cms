@@ -1,9 +1,11 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Menu, MenuProps } from "antd";
-import Sider from "antd/es/layout/Sider";
+import { Menu, MenuProps, Layout } from "antd";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { UserOutlined } from "@ant-design/icons";
+import { OrganizationIcon } from "@/components/icon";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -17,10 +19,16 @@ function getItem(t: any): MenuItem[] {
                 {
                     key: "user_workspaces",
                     label: t("user_workspaces"),
+                    icon: <UserOutlined />,
                 },
                 {
                     key: "organizations",
                     label: t("organizations"),
+                    icon: (
+                        <OrganizationIcon
+                            style={{ width: "20px", height: "20px" }}
+                        />
+                    ),
                 },
             ],
         },
@@ -30,18 +38,22 @@ function getItem(t: any): MenuItem[] {
 export function NavBar() {
     const t = useTranslations("nav_bar");
     const router = useRouter();
+    const [collapsed, setCollapsed] = useState(false);
+
+    const { Sider } = Layout;
 
     const onClick: MenuProps["onClick"] = (e) => {
         router.push(`/${e.key}`);
     };
 
     return (
-        <Sider collapsible>
-            <div className="demo-logo-vertical" />
+        <Sider
+            collapsible
+            collapsed={collapsed}
+            onCollapse={(value) => setCollapsed(value)}
+        >
             <Menu
                 onClick={onClick}
-                defaultSelectedKeys={["1"]}
-                defaultOpenKeys={["sub1"]}
                 mode="inline"
                 items={getItem(t)}
                 theme="dark"
