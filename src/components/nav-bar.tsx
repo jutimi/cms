@@ -5,7 +5,7 @@ import { Menu, MenuProps, Layout } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
-import { OrganizationIcon } from "@/components/icon";
+import { OrganizationIcon, WorkspaceIcon } from "@/components/icon";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -13,8 +13,8 @@ function getItem(t: any): MenuItem[] {
     return [
         {
             key: "workspace_group",
-            type: "group",
             label: t("workspace_group"),
+            icon: <WorkspaceIcon />,
             children: [
                 {
                     key: "user_workspaces",
