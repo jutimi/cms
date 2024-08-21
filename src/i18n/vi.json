@@ -3,7 +3,8 @@
         "dashboard": "Dashboard",
         "workspace_group": "Quản lý workspace",
         "user_workspaces": "Quản lý nhân sự",
-        "organizations": "Quản lý phòng ban"
+        "organizations": "Quản lý phòng ban",
+        "detail": "Chi tiết"
     },
     "validation": {},
     "user_workspaces": {},
