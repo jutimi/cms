@@ -51,12 +51,14 @@ export function NavBar() {
             collapsible
             collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
+            theme="light"
+            style={{ borderRight: "1px solid #f0f0f0" }}
         >
             <Menu
                 onClick={onClick}
                 mode="inline"
                 items={getItem(t)}
-                theme="dark"
+                theme="light"
             />
         </Sider>
     );
