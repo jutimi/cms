@@ -7,8 +7,23 @@ import { useState } from "react";
 import { UserOutlined } from "@ant-design/icons";
 import { OrganizationIcon, WorkspaceIcon } from "@/components/icon";
 
+// Private Interface/Type
 type MenuItem = Required<MenuProps>["items"][number];
 
+// CSS Style
+const siderStyle: React.CSSProperties = {
+    width: "200px",
+    overflow: "auto",
+    position: "fixed",
+    height: "100%",
+    left: 0,
+    top: "50px" /* Offset sider by header height */,
+    scrollbarWidth: "thin",
+    scrollbarColor: "unset",
+    borderRight: "1px solid #f0f0f0",
+};
+
+// Private Function
 function getItem(t: any): MenuItem[] {
     return [
         {
@@ -35,6 +50,7 @@ function getItem(t: any): MenuItem[] {
     ];
 }
 
+// Public Component
 export function NavBar() {
     const t = useTranslations("nav_bar");
     const router = useRouter();
@@ -52,7 +68,7 @@ export function NavBar() {
             collapsed={collapsed}
             onCollapse={(value) => setCollapsed(value)}
             theme="light"
-            style={{ borderRight: "1px solid #f0f0f0" }}
+            style={siderStyle}
         >
             <Menu
                 onClick={onClick}

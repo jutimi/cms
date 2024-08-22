@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { Col, Input, Row, Tree } from "antd";
+import { Card, Col, Input, Row, Tree } from "antd";
 import type { TreeDataNode } from "antd";
 
 function OrganizationTree() {
@@ -131,11 +131,11 @@ function OrganizationTree() {
     }, [searchValue]);
 
     return (
-        <div>
+        <Card title="Organization Tree">
             <Search
-                style={{ marginBottom: 8 }}
                 placeholder="Search"
                 onChange={onChange}
+                style={{ marginBottom: 8 }}
             />
             <Tree
                 onExpand={onExpand}
@@ -143,12 +143,25 @@ function OrganizationTree() {
                 autoExpandParent={autoExpandParent}
                 treeData={treeData}
             />
-        </div>
+        </Card>
     );
 }
 
 function UserWorkspaceTable() {
-    return <div>User Workspace List</div>;
+    return (
+        <div>
+            <p>long content</p>
+            {
+                // indicates very long content
+                Array.from({ length: 100 }, (_, index) => (
+                    <React.Fragment key={index}>
+                        {index % 20 === 0 && index ? "more" : "..."}
+                        <br />
+                    </React.Fragment>
+                ))
+            }
+        </div>
+    );
 }
 
 export default function Page() {

@@ -43,9 +43,6 @@ export function NavLinks() {
     });
 
     return (
-        <Breadcrumb
-            style={{ margin: "16px 0", padding: "0 24px" }}
-            items={items}
-        ></Breadcrumb>
+        <Breadcrumb style={{ padding: "0 24px" }} items={items}></Breadcrumb>
     );
 }

@@ -27,11 +27,11 @@ export default async function RootLayout({
             <body>
                 <ConfigProvider>
                     <NextIntlClientProvider messages={messages}>
-                        <Layout style={{ minHeight: "100vh" }}>
+                        <Layout className="app-layout">
                             <CustomHeader></CustomHeader>
-                            <Layout>
+                            <Layout className="main-layout">
                                 <NavBar></NavBar>
-                                <Layout>
+                                <Layout className="content-layout">
                                     <NavLinks></NavLinks>
                                     <Body>{children}</Body>
                                     <CustomFooter></CustomFooter>
