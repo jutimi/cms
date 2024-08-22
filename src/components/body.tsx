@@ -6,8 +6,8 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 // CSS Style
 const contentStyle: React.CSSProperties = {
     padding: 24,
-    minHeight: 360,
     flexGrow: 1,
+    height: "100%",
 };
 
 export function Body({ children }: { children: React.ReactNode }) {

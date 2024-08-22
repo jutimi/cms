@@ -1,8 +1,8 @@
-interface DataNode {
-    title: string;
-    key: string;
-    isLeaf?: boolean;
-    children?: DataNode[];
+interface DataType {
+    key: React.Key;
+    name: string;
+    age: number;
+    address: string;
 }
 
-export { DataNode };
+export { DataType };

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { Card, Col, Input, Row, Tree } from "antd";
+import { Card, Col, Input, Row, Table, TableColumnsType, Tree } from "antd";
 import type { TreeDataNode } from "antd";
+import { DataType } from "./interface";
 
 function OrganizationTree() {
     const { Search } = Input;
@@ -131,7 +132,7 @@ function OrganizationTree() {
     }, [searchValue]);
 
     return (
-        <Card title="Organization Tree">
+        <Card title="Organization Tree" className="card-fit-screen">
             <Search
                 placeholder="Search"
                 onChange={onChange}
@@ -148,30 +149,106 @@ function OrganizationTree() {
 }
 
 function UserWorkspaceTable() {
+    const columns: TableColumnsType<DataType> = [
+        {
+            title: "Full Name",
+            width: 100,
+            dataIndex: "name",
+            key: "name",
+            fixed: "left",
+        },
+        {
+            title: "Age",
+            width: 100,
+            dataIndex: "age",
+            key: "age",
+            fixed: "left",
+        },
+        {
+            title: "Column 1",
+            dataIndex: "address",
+            key: "1",
+            width: 150,
+        },
+        {
+            title: "Column 2",
+            dataIndex: "address",
+            key: "2",
+            width: 150,
+        },
+        {
+            title: "Column 3",
+            dataIndex: "address",
+            key: "3",
+            width: 150,
+        },
+        {
+            title: "Column 4",
+            dataIndex: "address",
+            key: "4",
+            width: 150,
+        },
+        {
+            title: "Column 5",
+            dataIndex: "address",
+            key: "5",
+            width: 150,
+        },
+        {
+            title: "Column 6",
+            dataIndex: "address",
+            key: "6",
+            width: 150,
+        },
+        {
+            title: "Column 7",
+            dataIndex: "address",
+            key: "7",
+            width: 150,
+        },
+        { title: "Column 8", dataIndex: "address", key: "8" },
+        {
+            title: "Action",
+            key: "operation",
+            fixed: "right",
+            width: 100,
+            render: () => <a>action</a>,
+        },
+    ];
+
+    const data: DataType[] = [];
+    for (let i = 0; i < 100; i++) {
+        data.push({
+            key: i,
+            name: `Edward ${i}`,
+            age: 32,
+            address: `London Park no. ${i}`,
+        });
+    }
+
     return (
-        <div>
-            <p>long content</p>
-            {
-                // indicates very long content
-                Array.from({ length: 100 }, (_, index) => (
-                    <React.Fragment key={index}>
-                        {index % 20 === 0 && index ? "more" : "..."}
-                        <br />
-                    </React.Fragment>
-                ))
-            }
-        </div>
+        <Card title="User Workspaces List" className="card-fit-screen">
+            <Table
+                columns={columns}
+                dataSource={data}
+                scroll={{ x: true, y: "calc(100vh - 500px)" }}
+            />
+        </Card>
     );
 }
 
 export default function Page() {
     return (
         <>
-            <Row>
-                <Col span={8}>
+            <Row className="row-fit-screen">
+                <Col span={8} className="col-fit-screen">
                     <OrganizationTree />
                 </Col>
-                <Col span={16} style={{ padding: "0 24px" }}>
+                <Col
+                    span={16}
+                    className="col-fit-screen"
+                    style={{ padding: "0 24px" }}
+                >
                     <UserWorkspaceTable />
                 </Col>
             </Row>

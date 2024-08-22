@@ -44,7 +44,13 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: calc(100vh - 64px);
+}
+
+.card-fit-screen,
+.row-fit-screen,
+.col-fit-screen {
+    height: 100%;
 }
 
 @layer utilities {
