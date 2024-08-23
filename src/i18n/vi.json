@@ -1,4 +1,8 @@
 {
+    "not_found": {
+        "sub_title": "Trang bạn đang tìm kiếm hiện không tồn tại!. Vui lòng kiểm tra lại đường dẫn",
+        "back_home": "Trang chủ"
+    },
     "nav_bar": {
         "dashboard": "Dashboard",
         "workspace_group": "Quản lý workspace",
@@ -6,7 +10,26 @@
         "organizations": "Quản lý phòng ban",
         "detail": "Chi tiết"
     },
-    "validation": {},
+    "validation": {
+        "required": "{field} không được bỏ trống!"
+    },
+    "login": {
+        "username": "Tên đăng nhập",
+        "password": "Mật khẩu",
+        "remember_me": "Ghi nhớ đăng nhập",
+        "login": "Đăng nhập",
+        "register": "Đăng ký!",
+        "register_text": "Hoặc",
+        "forgot_password": "Quên mật khẩu?"
+    },
+    "register": {
+        "username": "Tên đăng nhập",
+        "password": "Mật khẩu",
+        "confirm_password": "Xác thực mật khẩu",
+        "login": "Đăng nhập!",
+        "register": "Đăng ký",
+        "login_text": "Hoặc"
+    },
     "user_workspaces": {},
     "organization": {}
 }

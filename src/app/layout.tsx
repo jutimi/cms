@@ -27,17 +27,7 @@ export default async function RootLayout({
             <body>
                 <ConfigProvider>
                     <NextIntlClientProvider messages={messages}>
-                        <Layout className="app-layout">
-                            <CustomHeader></CustomHeader>
-                            <Layout className="main-layout">
-                                <NavBar></NavBar>
-                                <Layout className="content-layout">
-                                    <NavLinks></NavLinks>
-                                    <Body>{children}</Body>
-                                    <CustomFooter></CustomFooter>
-                                </Layout>
-                            </Layout>
-                        </Layout>
+                        <main>{children}</main>
                     </NextIntlClientProvider>
                 </ConfigProvider>
             </body>
